@@ -1,0 +1,83 @@
+Aim : Design a base class shape with two double type values and member functions to input the data and compute_area() for calculating area of shape.
+Derive two classes: triangle and rectangle. Make compute_area() as abstract function and redefine this function in the derived class to suit their
+requirements. Write a program that accepts dimensions of triangle/rectangle and display calculated area. Implement dynamic binding for given case study. 
+
+
+
+import java.util.*;
+abstract class shape
+{
+Double x;
+Double y;
+Double r;
+void input()
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("enter length");
+x=sc.nextDouble();
+System.out.println("enter breadth");
+y=sc.nextDouble();
+}
+void Cinput()
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("enter radius");
+r=sc.nextDouble();
+}
+abstract void compute_area();
+}
+class Triangle extends shape
+{
+void compute_area()
+{
+System.out.println("Area of Triangle is :");
+System.out.println(0.5*x*y);
+}
+}
+class Rectangle extends shape
+{
+void compute_area()
+{
+System.out.println("Area of Rectangle is :");
+System.out.println(x*y);
+}
+}
+class Circle extends shape
+{
+void compute_area()
+{
+System.out.println("Area of Circle is :");
+System.out.println(3.14*r*r);
+}
+}
+public class Main
+{
+public static void main(String[] args)
+{
+Scanner n = new Scanner(System.in);
+System.out.println("Enter your choice to calculate area :\n1.Triangle \n2.Rectangle
+\n3.Circle");
+int ch = n.nextInt();
+switch(ch)
+
+{
+case 1:
+Triangle a = new Triangle();
+a.input();
+a.compute_area();
+break;
+
+case 2:
+Rectangle b = new Rectangle();
+b.input();
+b.compute_area();
+break;
+
+case 3:
+Circle c = new Circle();
+c.Cinput();
+c.compute_area();
+break;
+}
+}
+}

@@ -1,0 +1,215 @@
+Aim : Design and develop a context for given case study and implement an interface for Vehicles Consider the example of vehicles like bicycle, car and
+bike. All Vehicles have common functionalities such as Gear Change, Speed up and apply breaks. Make an interface and put all these common
+functionalities. Bicycle, Bike, Car classes should be implemented for all these functionalities in their own class in their own way
+
+import java.util.Scanner;
+interface vehicle 
+{
+  void GearChange(int Gear):
+  void Speedup(int Speed);
+  void ApplyBreak();
+  }
+  class Bike implements Vehicle 
+  {
+  int currentGear=0;
+  int currentSpeed=0;
+  public void GearChange(int Gear)
+  {
+  if(Gear>=7)
+  {
+    System.out.println("GEar successfully changed to "+currentGear);
+  }
+  }
+  
+  public void SpeedUp(int Speed)
+  {
+  if(Speed>=120)
+  {
+  system.out.println("You are crossing speed limit");
+  }
+  else 
+  {
+  currentSpeed=Speed;
+  system.out.println("Now Speed is"+currentSpeed);
+  }
+  }
+   public void ApplyBreak()
+  {
+  if(currentSpeed!=0)
+  {
+  currentSpeed = 0;
+  system.out.println("Breaks Applied");
+  }
+  }
+  }
+  
+  class Bicycle implements Vehicle
+{
+  int currentGear=0;
+  int currentSpeed=0;
+  public void GearChange(int Gear)
+  {
+  if(Gear>=4)
+  {
+  system.out.println("Gear Out of Range");
+  }
+  else 
+  {
+  currentGear=Gear;
+  system.out.println("Gear successfully changed to"+currentGear);
+  }
+  }
+  
+  public void Speedup(int speed)
+  {
+  if(Speed>=60)
+  {
+  system.out.println("You cannot pedal on this speed"+currentSpeed);
+  }
+  else 
+  {
+  currentSpeed=speed;
+  system.out.println("Now speed is "+Speed);
+  }
+  }
+  pubic void ApplyBreak()
+  {
+  if(currentSpeed!=0)
+  {
+  if(currentSpeed!=0)
+  {
+  currentSpeed=0;
+  system.out.println("Breaks Applied");
+  }
+  }
+  
+  class Car implements Vehicle
+{
+  int currentGear=0;
+  int currentSpeed=0;
+  public void GearChange(int Gear)
+  {
+  if(Gear>=10)
+  {
+  system.out.println("Gear out of Range");
+  }
+  else 
+  {
+  currentGear=Gear;
+  system.out.println("Gear changed successfully to "+currentGear);
+  }
+  }
+  public void SpeedUp(int speed)
+  {
+  if(Speed>=240)
+  {
+  system.out.println("YOu're acrossing Speed limit");
+  }
+  else
+  {
+  currentSpeed=Speed;
+  system.out.println("Now speed is" +currentSpeed);
+  }
+  }
+   public void ApplyBreak()
+   {
+   if(currentSpeed!=0)
+   {
+   currentSpeed=0;
+   system.out.println("Breaks Applied");
+   }
+   }
+   }
+   
+   public class Main{
+   public static void main(String[]args)
+  {
+  scanner Sc=new Scanner(System.in);
+  int Ch;
+  do {
+  system.out.println("CHOOSE VEHICLE TO DRIVE TODAY: \n1.Bike\n2.Bicycle\n3.Car\n4.Exit");
+  Ch=Sc.nextInt();
+  switch(Ch)
+  {
+    case 1:
+        Bike Hero=new Bike();
+        system.out.println("Choose action to perform \n1.Change Gear\n2.Speed Up\n3.Apply Break");
+        int a=Sc.nextInt();
+        if(a==1)
+        {
+        system.out.println("Enter Gear to change");
+        int Gear=Sc.nextInt();
+        Hero.GearChange(Gear);
+        }
+        else if(a==2)
+        {
+        system.out.println("Enter Speed to Change");
+        int speed= Sc.nextInt();
+        Hero.Speedup(speed);
+        }
+        else if(a==3)
+        {
+        Hero.ApplyBreak();
+        }
+        else {
+        system.out.println("Action Not listed");
+        }
+        break;
+        
+        case 2:
+          Bicycle schnell=new Bicycle();
+      system.out.println("Choose action to perform \n1.Change Gear\n2.Speed Up\n3.Apply Break");
+        int b=Sc.nextInt();
+        if(b==1)
+        {
+        system.out.println("Enter Gear to change");
+        int Gear=Sc.nextInt();
+        schnell.GearChange(Gear);
+        }
+        else if(a==2)
+        {
+        system.out.println("Enter Speed to Change");
+        int speed= Sc.nextInt();
+        schnell.Speedup(speed);
+        }
+        else if(b==3)
+        {
+        Hero.ApplyBreak();
+        }
+        else {
+        system.out.println("Action Not listed");
+        }
+        break;
+    
+      case 3: 
+        Car mercedes =new Car();
+       system.out.println("Choose action to perform \n1.Change Gear\n2.Speed Up\n3.Apply Break");
+        int c=Sc.nextInt();
+        if(c==1)
+        {
+        system.out.println("Enter Gear to change");
+        int Gear=Sc.nextInt();
+        mercedes.GearChange(Gear);
+        }
+        else if(c==2)
+        {
+        system.out.println("Enter Speed to Change");
+        int speed= Sc.nextInt();
+        mercedes.Speedup(speed);
+        }
+        else if(c==3)
+        {
+        Hero.ApplyBreak();
+        }
+        else {
+        system.out.println("Action Not listed");
+        }
+        break;
+        
+        default :
+          system.out.println("Invalid Vehicle choice");
+          }
+          }
+          while(ch==4);
+          }
+          }

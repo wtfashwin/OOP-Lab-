@@ -1,0 +1,112 @@
+Aim : Implement a generic program using any collection class to count the number of elements in a collection that have a specific
+property such as even numbers, odd number, prime number and palindromes.
+
+
+import java.util.*;
+class Generics{
+ Scanner sc=new Scanner(System.in);
+ List<Integer> num=new ArrayList<Integer>();
+ List<String> str=new ArrayList();
+ void inputStr(int n){
+ for(int i=0;i<n;i++){
+ String word=sc.nextLine();
+ str.add(word);
+ }
+ }
+ void inputNum(int n){
+ for(int i=0;i<n;i++){
+ int element=sc.nextInt();
+ num.add(element);
+ }
+ }
+ void checkPrime(){
+ for(int integer:num){
+ boolean flag=true;
+ for(int i=2;i<integer/2;i++){
+ if(integer%i==0){
+ flag=false;
+ }
+ }
+ if(flag){
+ System.out.println("Number is Prime: "+integer);
+ }else{
+ System.out.println("Number is not prime :"+integer);
+ }
+ }
+
+ }
+ void oddEven(){
+ for(int num:num){
+ if(num==0 || num==1){
+ System.out.println("Can Not Predict For 0 or 1: "+num);
+ }
+ if(num%2==0){
+ System.out.println("You Entered Even Number : "+num);
+ }
+ if(num%2!=0){
+ System.out.println("You Entered Odd Number : "+num);
+ }
+ }
+ }
+ void palindrome(){
+ for(String st:str){
+ boolean flag=true;
+ for(int i=0;i<st.length();i++){
+ if(st.charAt(i)!=st.charAt(st.length()-1-i)){
+ flag=false;
+ break;
+ }
+ }
+ if(flag){
+ System.out.println("String is palindrome : "+st);
+ }else{
+ System.out.println("String is not palindrome");
+ }
+ }
+ }
+
+
+}
+public class Main{
+public static void main(String[] args) {
+ Scanner sc=new Scanner(System.in);
+ char cr;
+ do{
+ Generics generic=new Generics();
+ System.out.println("Choose datatype to perform operation: ");
+ System.out.println("1. Integer \n2. String (To check
+Palindrome)\n********************");
+ int op=sc.nextInt();
+ switch(op){
+ case 1:
+ System.out.println("Enter size on list: ");
+ int size=sc.nextInt();
+ System.out.println("Enter List of Elements :");
+ generic.inputNum(size);
+ System.out.println("Chose Operation :\n1.Check Prime Numbers \n2. Check Odd Or
+Even\n********************");
+ int ch=sc.nextInt();
+ if(ch==1){
+ generic.checkPrime();
+ }else if(ch==2){
+ generic.oddEven();
+ }else{
+ System.out.println("Invalid Input");
+ }
+ break;
+ case 2:
+ System.out.println("Enter List size: ");
+ int sizeStr=sc.nextInt();
+ generic.inputStr(sizeStr);
+ generic.palindrome();
+ break;
+ default:
+ System.out.println("Invalid Input");
+ break;
+ }
+ System.out.println("********************\nDo You Want to perform more
+Operations ?[Y/N]\n********************");
+ cr=sc.next().charAt(0);
+ }while(cr=='y' || cr=='Y');
+}
+}

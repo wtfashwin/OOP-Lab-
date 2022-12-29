@@ -1,0 +1,74 @@
+Aim : Design and develop inheritance for a given case study, identify objects and relationships and implement inheritance wherever applicable. Employee class has
+Emp_name, Emp_id, Address, Mail_id, and Mobile_noas members. Inherit the classes: Programmer, Team Lead, Assistant Project Manager and Project Manager
+from employee class. Add Basic Pay (BP) as the member of all the inherited classes with 97% of BP as DA, 10 % of BP as HRA, 12% of BP as PF, 0.1% of BP for staff club
+fund. Generate pay slips for the employees with their gross and net salary. 
+
+import java.util.Scanner;
+class employee
+{
+ String empname,empmail,empaddress,empdeg,empmobile;
+ int empid,A;
+ double BP,DA,HRA,PF,SCF,NS;
+ void input()
+ {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter Employee Name:");
+ empname = sc.next();
+ System.out.println("Enter Mail id:");
+ empmail = sc.next();
+ System.out.println("Enter Address:");
+ empaddress = sc.next();
+ System.out.println("Enter Employee ID:");
+ empid = sc.nextInt();
+ System.out.println("Enter Employee Mobile no.:");
+ empmobile = sc.next();
+ System.out.println("Enter Employee designation:");
+ empdeg = sc.next();
+ }
+ void calculate()
+ {
+ switch(empdeg)
+ {
+ case "programmer":
+ A = 50000;
+ break;
+
+ case "teamleader":
+ A = 65000;
+ break;
+ case "A_P_Manager":
+ A = 80000;
+ break;
+ case "P_Manager":
+ A = 100000;
+ break;
+ }
+ BP = A;
+ DA = BP*0.97;
+ HRA = BP*0.1;
+ PF =BP*0.12;
+ SCF =BP*0.1;
+ NS =BP+DA+HRA-PF-SCF;
+ }
+ void display()
+ {
+ System.out.println("\nEmployee Name:"+empname);
+ System.out.println("Mail ID:"+empmail);
+ System.out.println("Address:"+empaddress);
+ System.out.println("Employee ID:"+empid);
+ System.out.println("Mobile Number:"+empmobile);
+ System.out.println("Basic Salary : RS "+BP);
+ System.out.println("DA : RS "+DA);
+ System.out.println("HRA : RS "+HRA);
+ System.out.println("PF : RS "+PF);
+ System.out.println("SCF : RS "+SCF);
+ System.out.println("Net Salary : RS "+NS);
+ }
+ public static void main(String[] args)
+ {
+ employee emp1 = new employee();
+ emp1.input();
+ emp1.calculate();
+ emp1.display();
+ }
+} 

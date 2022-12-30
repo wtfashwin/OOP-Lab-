@@ -12,55 +12,41 @@ PROGRAM :-
 
 
 import java.util.Scanner;
-// ============================= ABSTRACT CLASS Car_Factory
-=============================//
+// ============================= ABSTRACT CLASS Car_Factory=============================//
 abstract class Car_Factory{
 
  //declaration of data member
  String compnay,car_name;
- double budget;
-
- //declaration of abstract methods
+ double budget;                                      //declaration of abstract methods
  abstract void getprice(double price);
  abstract void detail(String company_name,String car_name);
- abstract void accessories();
-
- //declaration and implentation of input method
+ abstract void accessories();                        //declaration and implentation of input method
  void input() {
- Scanner scan =new Scanner (System.in);//creating object
-of scanner class
+ Scanner scan =new Scanner (System.in); // creating an object of scanner class
  System.out.print("Company- ");
  compnay=scan.next();//taking input from user
  System.out.print("Car- ");
- car_name=scan.next();//taking input from user
+ car_name=scan.next();                                //taking input from user 
  System.out.print("Rough Budget(in Lakhs)- ");
  budget=scan.nextDouble();//taking input from user
  }
- void display(Car_Factory obj1) {
- //calling the methods//
- obj1.getprice(budget);//calling getprice method
- System.out.println("\n-----------------------------------
-");
+ void display(Car_Factory obj1) {                      //calling the methods//
+ obj1.getprice(budget);                                //calling getprice method  
+ System.out.println("\n----------------------------------");
  obj1.detail(compnay, car_name);//calling detail method
- System.out.println("\n-----------------------------------
-");
+ System.out.println("\n-----------------------------------");
  obj1.accessories();//calling accessories method
- System.out.println("\n-----------------------------------
-");
+ System.out.println("\n-----------------------------------");
  }
 }
-//============================= CLASS Small_car
-=============================//
+//============================= CLASS Small_car =============================//
 class Small_car extends Car_Factory{
- String Ans;//declaration of data member
-
- //method for getprice
+ String Ans;//declaration of data member                //method for getprice
  public void getprice(double price) {
  if(price>2&&price<5)
  Ans="No"; //modify Ans
  else
  Ans="Yes"; //modify Ans
-
  }
  //method for displaying car detail//
  public void detail(String company_name,String car_name) {
@@ -80,8 +66,8 @@ class Small_car extends Car_Factory{
  System.out.println("Touch Screen Music Player- "+Ans);
  }
 }
-//============================= CLASS Sedan
-=============================//
+
+//============================= CLASS Sedan =============================//
 class Sedan extends Car_Factory{
  String Ans;//declaration of data member
 
@@ -101,6 +87,7 @@ class Sedan extends Car_Factory{
  System.out.println("Fuel- Petrol/Diesel");
  System.out.println("Gears- Auto/Manual");
  }
+ 
  //method to display accessories of car//
  public void accessories() {
  System.out.println("Types of Tyres- Alloy Wheels");
@@ -111,8 +98,7 @@ class Sedan extends Car_Factory{
  System.out.println("Roof Window- "+Ans);
  }
 }
-//============================= CLASS Small_car
-=============================//
+//============================= CLASS Small_car =============================//
 class Luxary extends Car_Factory{
  String Ans;//declaration of data member
 
@@ -123,7 +109,6 @@ class Luxary extends Car_Factory{
  else
  Ans="Yes"; //modify Ans
  }
-
  //method for displaying car detail//
  public void detail(String company_name,String car_name) {
  System.out.println("Company- "+company_name);
@@ -134,7 +119,8 @@ class Luxary extends Car_Factory{
  }
 
  //method to display accessories of car//
- public void accessories() {
+ public void accessories() 
+ {
  System.out.println("Types of Tyres- Alloy Wheels");
  System.out.println("Airbags- YES");
  System.out.println("Back Wiper- YES");
@@ -146,8 +132,7 @@ class Luxary extends Car_Factory{
  System.out.println("Button Start- "+Ans);
  }
 }
-//============================= MAIN CLASS
-=============================//
+//============================= MAIN CLASS=============================//
 public class Main {
  //ststic main method
  public static void main(String[] args) {
@@ -158,20 +143,15 @@ of scanner class
  //double price;
  Car_Factory obj;// object of reference Car_Factory
 
- obj= new Small_car(); //creating object
-of Small_car
+ obj= new Small_car(); //creating object of Small_car
  obj.input();//calling input method
  obj.display(obj);//calling display method
 
 
- obj= new Sedan();//creating object of
-Sedan
+ obj= new Sedan();//creating object of Sedan
  obj.input();//calling input method
  obj.display(obj);//calling display method
-
-
- obj= new Luxary();//creating object of
-Luxary
+ obj= new Luxary();//creating object of Luxary
  obj.input();//calling input method
  obj.display(obj);//calling display method
 
